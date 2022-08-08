@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
+import { useNavigate } from 'react-router-dom'
 
 const NavigationBar = styled.ul`
   /* height: calc(100vh - 40px); */
@@ -17,11 +18,13 @@ function Nav(props) {
 
   const { width, height } = props.dimensions
 
+  const navigate = useNavigate();
+
   return (
     <div style={{height: '100%'}}>
-      <NavigationBar width>
-        <NavigationList>{width > 101 ? "메뉴 1" : 'icon 1'}</NavigationList>
-        <NavigationList>{width > 101 ? "메뉴 2" : 'icon 2'}</NavigationList>
+      <NavigationBar>
+        <NavigationList onClick={() => navigate('/')}>{width > 101 ? "메뉴 1 (Home)" : 'icon 1 (Home)'}</NavigationList>
+        <NavigationList onClick={() => navigate('/statistics')}>{width > 101 ? "메뉴 2 (Statistics)" : 'icon 2 (Statistics)'}</NavigationList>
         <NavigationList>{width > 101 ? "메뉴 3" : 'icon 3'}</NavigationList>
         <NavigationList>{width > 101 ? "메뉴 4" : 'icon 4'}</NavigationList>
         <NavigationList>{width > 101 ? "메뉴 5" : 'icon 5'}</NavigationList>
