@@ -16,8 +16,10 @@ const halfWidth = window.screen.width / 2;
 const minHeight = window.screen.height / 4;
 const minWidthLeftPane = window.screen.width / 8;
 
+
+
 function App() {
-  
+
   return (
     <div className="App">
       <Reset />
@@ -99,7 +101,7 @@ function App() {
           {/* 내용 내부 resizable */}
           <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}}>
             {/* 왼쪽 nav */}
-            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)'}}>
+            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)', overflow: 'hidden'}} propagateDimensions={true} propagateDimensionsRate={200} >
               <Nav />
             </ReflexElement>
 

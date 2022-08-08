@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 
@@ -13,16 +13,22 @@ const NavigationList = styled.li`
 `
 
 
-function Nav() {
+function Nav(props) {
+
+  const { width, height } = props.dimensions
+
   return (
     <div style={{height: '100%'}}>
-      <NavigationBar>
-        <NavigationList>메뉴 1</NavigationList>
-        <NavigationList>메뉴 2</NavigationList>
-        <NavigationList>메뉴 3</NavigationList>
-        <NavigationList>메뉴 4</NavigationList>
-        <NavigationList>메뉴 5</NavigationList>
-        <NavigationList>메뉴 6</NavigationList>
+      <NavigationBar width>
+        <NavigationList>{width > 101 ? "메뉴 1" : 'icon 1'}</NavigationList>
+        <NavigationList>{width > 101 ? "메뉴 2" : 'icon 2'}</NavigationList>
+        <NavigationList>{width > 101 ? "메뉴 3" : 'icon 3'}</NavigationList>
+        <NavigationList>{width > 101 ? "메뉴 4" : 'icon 4'}</NavigationList>
+        <NavigationList>{width > 101 ? "메뉴 5" : 'icon 5'}</NavigationList>
+        <NavigationList>{width > 101 ? "메뉴 6" : 'icon 6'}</NavigationList>
+
+        <br />
+        <div>{width}</div>
       </NavigationBar>
     </div>
   )
