@@ -1,9 +1,11 @@
 import React from 'react'
-import { ReflexElement } from 'react-reflex'
+import { ReflexContainer, ReflexElement } from 'react-reflex'
 
 function Statistics() {
   return (
-    <div>Statistics</div>
+    <ReflexElement className='middle-pane' style={{height: 'calc(100vh - 40px)'}}>
+      Statistics
+    </ReflexElement>
   )
 }
 

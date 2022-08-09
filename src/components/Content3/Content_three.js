@@ -7,11 +7,16 @@ const ContentDiv = styled.div`
   height: 100%;
 `
 
-function Content_three() {
+function Content_three(props) {
+
+  const { width, height } = props.dimensions
+
   return (
     <div style={{height: '100%'}}>
       <ContentDiv>
         Content_three
+        <br />
+        {width}
       </ContentDiv>
     </div>
   )

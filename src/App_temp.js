@@ -28,6 +28,73 @@ function App() {
     <div className="App">
       <Reset />
 
+{/*   TEST (1)   */}
+      {/* <ReflexContainer style={{ height: "100vh" }} orientation="vertical">
+        <ReflexElement className="left-pane">
+          <div className="pane-content">
+            <label>Left Pane (resizable)</label>
+          </div>
+        </ReflexElement>
+
+        <ReflexSplitter
+          style={{
+            backgroundColor: "#ccdff2",
+            textAlign: "center",
+            width: "15px"
+          }}
+        >
+          <div class="splitter">o o o</div>
+        </ReflexSplitter>
+
+        <ReflexElement className="right-pane" minSize="200" maxSize="800">
+          <div className="pane-content">
+            <div style={{ display: "flex" }}>
+              <label>
+                Right Pane (resizable)
+                <br />
+                <br />
+                minSize = 200px
+                <br />
+                maxSize = 800px
+              </label>
+            </div>
+          </div>
+        </ReflexElement>
+      </ReflexContainer> */}
+
+
+
+{/*   TEST (2)   */}
+      {/* <ReflexContainer orientation="vertical" style={{height: '100vh'}}>
+        <ReflexElement className="left-pane">
+          <div className="pane-content">
+            <label>
+              Left Pane (resizable)
+            </label>
+          </div>
+        </ReflexElement>
+
+        <ReflexSplitter/>
+
+        <ReflexElement className="right-pane"
+          minSize="200"
+          maxSize="800">
+          <div className="pane-content">
+            <label>
+              Right Pane (resizable)
+              <br/>
+              <br/>
+              minSize = 200px
+              <br/>
+              maxSize = 800px
+            </label>
+            </div>
+        </ReflexElement>
+      </ReflexContainer> */}
+
+
+
+
 {/*   Resizable Layout   */}
       <ReflexContainer orientation='horizontal'>
         {/* 고정 Header */}
@@ -37,7 +104,6 @@ function App() {
 
         {/* Header 아래 내용 */}
         <ReflexElement>
-
           {/* 내용 내부 resizable */}
           <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}}>
             {/* 왼쪽 nav */}
@@ -47,10 +113,8 @@ function App() {
 
             <ReflexSplitter className="reflex-thin" />
 
-
-
               {/* 중간 content */}
-              {/* <ReflexElement  className='middle-pane' style={{height: 'calc(100vh - 40px)'}}>
+              <ReflexElement  className='middle-pane' style={{height: 'calc(100vh - 40px)'}}>
                 <ReflexContainer orientation='horizontal'>
                   <ReflexElement minSize={minHeight}>
                     <ContentOne />
@@ -64,10 +128,10 @@ function App() {
                 </ReflexContainer>
               </ReflexElement>
 
-              <ReflexSplitter className="reflex-thin" /> */}
+              <ReflexSplitter className="reflex-thin" />
 
               {/* 오른쪽 content */}
-              {/* <ReflexElement className='right-pane' style={{height: 'calc(100vh - 40px)'}} minSize={minWidthLeftPane} maxSize={window.screen.width / 6} >
+              <ReflexElement className='right-pane' style={{height: 'calc(100vh - 40px)'}} minSize={minWidthLeftPane} maxSize={window.screen.width / 6} >
                 <ReflexContainer orientation='horizontal'>
                   <ReflexElement minSize={minHeight}>
                     <ContentThree />
@@ -79,13 +143,6 @@ function App() {
                     <Calllist />
                   </ReflexElement>
                 </ReflexContainer>
-              </ReflexElement> */}
-
-              <ReflexElement>
-                <Routes>
-                  <Route path='/' element={<MiddleComponent />} />
-                  <Route path='/statistics' element={<Statistics />} />
-                </Routes>
               </ReflexElement>
 
           </ReflexContainer>
