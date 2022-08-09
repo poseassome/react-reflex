@@ -21,3 +21,11 @@ https://apexcharts.com/
 https://github.com/apexcharts/apexcharts.js
 Copyright (c) 2018 ApexCharts
 MIT License
+
+
+
+
+# sockjs-client
+ --> node?
+# @stomp/stompjs
+ --> spring

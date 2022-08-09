@@ -12,7 +12,7 @@ import ContentThree from './components/Content3/Content_three'
 import Calllist from './components/Calllist/Calllist'
 import Statistics from './components/Statistics/Statistics';
 import MiddleComponent from './components/MiddleComponent/MiddleComponent';
-import React from 'react';
+import WebSocket from './components/WebSocket/WebSocket';
 
 
 
@@ -85,6 +85,7 @@ function App() {
                 <Routes>
                   <Route path='/' element={<MiddleComponent />} />
                   <Route path='/statistics' element={<Statistics />} />
+                  <Route path='/websocket' element={<WebSocket />} />
                 </Routes>
               </ReflexElement>
 

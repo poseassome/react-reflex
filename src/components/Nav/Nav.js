@@ -25,7 +25,7 @@ function Nav(props) {
       <NavigationBar>
         <NavigationList onClick={() => navigate('/')}>{width > 101 ? "메뉴 1 (Home)" : 'icon 1 (Home)'}</NavigationList>
         <NavigationList onClick={() => navigate('/statistics')}>{width > 101 ? "메뉴 2 (Statistics)" : 'icon 2 (Statistics)'}</NavigationList>
-        <NavigationList>{width > 101 ? "메뉴 3" : 'icon 3'}</NavigationList>
+        <NavigationList onClick={() => navigate('/websocket')}>{width > 101 ? "메뉴 3 (webSocket)" : 'icon 3 (webSocket)'}</NavigationList>
         <NavigationList>{width > 101 ? "메뉴 4" : 'icon 4'}</NavigationList>
         <NavigationList>{width > 101 ? "메뉴 5" : 'icon 5'}</NavigationList>
         <NavigationList>{width > 101 ? "메뉴 6" : 'icon 6'}</NavigationList>
