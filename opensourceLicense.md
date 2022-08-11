@@ -22,6 +22,11 @@ https://github.com/apexcharts/apexcharts.js
 Copyright (c) 2018 ApexCharts
 MIT License
 
+# ReCharts
+https://recharts.org/en-US/
+https://github.com/recharts/recharts
+Copyright (c) 2015 recharts
+MIT License
 
 
 

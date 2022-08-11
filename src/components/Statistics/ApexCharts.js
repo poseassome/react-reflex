@@ -163,11 +163,12 @@ function ApexCharts() {
 
   return (
     <div style={{display: 'flex'}}>
+      <p style={{color: '#fff', fontSize: '20px', marginRight: '10px'}}>ApexChart</p>
       <Chart 
         options={chartData1.options}
         series={chartData1.series}
         type="line"
-        width="800"
+        width="700"
         style={{marginRight: '10px'}}
       />
 
@@ -175,7 +176,7 @@ function ApexCharts() {
         options={chartData2.options}
         series={chartData2.series}
         type="line"
-        width="800"
+        width="700"
       />
     </div>
   )
