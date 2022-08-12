@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 
 import { Area, AreaChart, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts'
-import { BarChart, Bar, Cell, Legend, ResponsiveContainer } from 'recharts';
-import { useState } from 'react';
+import { BarChart, Bar, Cell, Legend } from 'recharts';
+
 
 
 const IndicatorContainter = styled.div`

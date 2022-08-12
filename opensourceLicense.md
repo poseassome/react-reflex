@@ -34,3 +34,21 @@ MIT License
  --> node?
 # @stomp/stompjs
  --> spring
+
+
+
+# react-date-range
+https://github.com/hypeserver/react-date-range
+Copyright (c) 2015-2020 Adphorus
+Copyright (c) 2020-     Hypeserver
+MIT License
+# date-fns
+https://date-fns.org/
+https://github.com/date-fns/date-fns
+Copyright (c) 2021 Sasha Koss and Lesha Koss https://kossnocorp.mit-license.org
+MIT License
+# moment
+https://momentjs.com/
+https://github.com/moment/moment/
+Copyright (c) JS Foundation and other contributors
+MIT License

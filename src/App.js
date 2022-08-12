@@ -6,13 +6,16 @@ import 'react-reflex/styles.css'
 
 import Header from './components/Header/Header'
 import Nav from './components/Nav/Nav'
+
 import ContentOne from './components/Content1/Content_one'
 import ContentTwo from './components/Content2/Content_two'
 import ContentThree from './components/Content3/Content_three'
 import Calllist from './components/Calllist/Calllist'
+
 import Statistics from './components/Statistics/Statistics';
 import MiddleComponent from './components/MiddleComponent/MiddleComponent';
 import WebSocket from './components/WebSocket/WebSocket';
+import CalendarCustom from './components/Calendar/CalendarCustom';
 
 
 
@@ -86,6 +89,7 @@ function App() {
                   <Route path='/' element={<MiddleComponent />} />
                   <Route path='/statistics' element={<Statistics />} />
                   <Route path='/websocket' element={<WebSocket />} />
+                  <Route path='/calendar' element={<CalendarCustom />} />
                 </Routes>
               </ReflexElement>
 
