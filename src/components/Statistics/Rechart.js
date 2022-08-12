@@ -3,7 +3,51 @@ import styled from 'styled-components';
 
 import { Area, AreaChart, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts'
 import { BarChart, Bar, Cell, Legend, ResponsiveContainer } from 'recharts';
+import { useState } from 'react';
 
+
+const IndicatorContainter = styled.div`
+  width: 100px;
+  height: 36px;
+  background: #d2d2d2;
+  border-radius: 5px;
+  padding: 2px;
+  
+`
+
+const IndicatorBox = styled.div`
+  width: 46px;
+  height: 32px;
+  line-height: 32px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  transform: ${(props) => (props.content === 'A' ? 'translateX(0px)' : 'translateX(50px)')};
+  /* transform: translateX(2px); */
+  transition: transform 300ms cubic-bezier(0.3, 0, 0, 1) 0ms;
+`
+
+const IndicatorType = styled.div`
+  width: 48px;
+  height: 32px;
+  color: #a5a5a5;
+  line-height: 32px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background: #d9d9d9;
+  }
+`
+
+const ChoiceType = styled(IndicatorType)`
+  color: #000;
+  cursor: default;
+  font-weight: 700;
+  &:hover {
+    background: none;
+  }
+  position: absolute;
+`
 
 const Ratiobar = styled.div`
   width: 50%;
@@ -14,7 +58,13 @@ const Ratiobar = styled.div`
 
 function Rechart() {
 
-  const data = [
+  const [changeData, setChangeData] = useState('A');
+
+  const onClick = (type) => {
+    setChangeData(type);
+  }
+
+  const dataA = [
     {
       name: "Page A",
       uv: 4000,
@@ -60,6 +110,28 @@ function Rechart() {
   ];
 
 
+  const dataB = [
+    {
+      name: 'Page B',
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: 'Page C',
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: 'Page D',
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+  ]
+
+
   return (
     <div style={{display: 'flex'}}>
       <p style={{color: '#fff', fontSize: '20px', marginRight: '30px'}}>ReChart</p>
@@ -68,7 +140,7 @@ function Rechart() {
         <AreaChart
           width={700}
           height={400}
-          data={data}
+          data={dataA}
           margin={{
             top: 10,
             right: 30,
@@ -98,14 +170,41 @@ function Rechart() {
 
 
       <div style={{background: '#fff'}}>
-        <div>
-          
-        </div>
+        {/* 일반 toggle */}
+        {/* <IndicatorContainter>
+          <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
+            <IndicatorBox content={changeData} />
+
+            <IndicatorType onClick={() => onClick('A')}>A</IndicatorType>
+            <IndicatorType onClick={() => onClick('B')}>B</IndicatorType>
+          </div>
+        </IndicatorContainter> */}
+
+
+        {/* Indicator 위 글자표시 */}
+        <IndicatorContainter>
+          <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
+            <IndicatorBox content={changeData} />
+
+            { changeData === 'A' ? 
+                <ChoiceType>A</ChoiceType>
+              :
+                <IndicatorType onClick={() => onClick('A')}>A</IndicatorType>
+            }
+            { changeData === 'B' ?
+                <ChoiceType style={{marginLeft: '50px'}}>B</ChoiceType>
+              :
+                <IndicatorType style={{marginLeft: '50px'}} onClick={() => onClick('B')}>B</IndicatorType>
+            }
+          </div>
+        </IndicatorContainter>
+
+
 
         <BarChart
           width={700}
           height={400}
-          data={data}
+          data={changeData === 'A' ? dataA : dataB}
           margin={{
             top: 10,
             right: 30,
