@@ -17,6 +17,7 @@ import MiddleComponent from './components/MiddleComponent/MiddleComponent';
 import WebSocket from './components/WebSocket/WebSocket';
 import CalendarCustom from './components/Calendar/CalendarCustom';
 import { useRef } from 'react';
+import { useEffect } from 'react';
 
 
 
@@ -28,12 +29,14 @@ const minWidthLeftPane = window.screen.width / 8;
 
 function App() {
 
+
+
   return (
-    <div className="App" style={{minWidth: '1200px'}}>
+    <div className="App" style={{minWidth: '1200px', position: 'relative'}}>
       <Reset />
 
 {/*   Resizable Layout   */}
-      <ReflexContainer orientation='horizontal'>
+      <ReflexContainer orientation='horizontal' >
         {/* 고정 Header */}
         <ReflexElement>
           <Header />
@@ -43,9 +46,9 @@ function App() {
         <ReflexElement>
 
           {/* 내용 내부 resizable */}
-          <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}}>
+          <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}} windowResizeAware={false}>
             {/* 왼쪽 nav */}
-            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)', overflow: 'hidden', maxWidth: '300px', minWidth: '100px'}} propagateDimensions={true} propagateDimensionsRate={200} >
+            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)', overflow: 'hidden', maxWidth: '300px'}}  propagateDimensions={true} propagateDimensionsRate={200} >
               <Nav />
             </ReflexElement>
 

@@ -17,7 +17,7 @@ function MiddleComponent(props) {
 
   return (
     <React.Fragment>
-      <ReflexContainer orientation='vertical'>
+      <ReflexContainer orientation='vertical' windowResizeAware={true}>
 
         <ReflexElement  className='middle-pane' style={{height: 'calc(100vh - 40px)'}}>
           <ReflexContainer orientation='horizontal'>
