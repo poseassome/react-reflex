@@ -16,6 +16,7 @@ import Statistics from './components/Statistics/Statistics';
 import MiddleComponent from './components/MiddleComponent/MiddleComponent';
 import WebSocket from './components/WebSocket/WebSocket';
 import CalendarCustom from './components/Calendar/CalendarCustom';
+import { useRef } from 'react';
 
 
 
@@ -28,7 +29,7 @@ const minWidthLeftPane = window.screen.width / 8;
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" style={{minWidth: '1200px'}}>
       <Reset />
 
 {/*   Resizable Layout   */}
@@ -44,7 +45,7 @@ function App() {
           {/* 내용 내부 resizable */}
           <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}}>
             {/* 왼쪽 nav */}
-            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)', overflow: 'hidden'}} propagateDimensions={true} propagateDimensionsRate={200} >
+            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)', overflow: 'hidden', maxWidth: '300px', minWidth: '100px'}} propagateDimensions={true} propagateDimensionsRate={200} >
               <Nav />
             </ReflexElement>
 
