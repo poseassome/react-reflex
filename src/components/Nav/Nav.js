@@ -19,39 +19,45 @@ const NavigationList = styled.li`
 
 function Nav(props) {
 
-  
+  const [resizeView, setResizeView] = useState(false);
 
   let { width, height } = props.dimensions
 
   const navigate = useNavigate();
 
-  const testnav = useRef();
-const [testwidth, setTestwidth] = useState();
+  const delay = 500;
+  let timer = null;
+
   const handleResize = () => {
-    console.log(`브라우저 화면 사이즈 x: ${window.innerWidth}, y: ${window.innerHeight}`)
-    
-    
-    console.log(testnav.current.offsetWidth)
-    // testdiv.style.width = testdiv.clientWidth
-    // testnav.current.style.position = 'relative'
+    setResizeView(true);
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      setResizeView(false)
+    }, delay)
   }
 
   useEffect(() => {
-    setTestwidth(testnav.current.offsetWidth)
-
     window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', handleResize);
     }
   }, [])
+  useEffect(() => {
+    props.setTempwidth(width);
+  }, [width])
+
+  // useEffect(() => {
+  //   if(resizeView) {
+  //     props.setTestwidth(width);
+  //     props.setTempwidth(width);
+  //   }
+  //   // else props.setTestwidth(300);
+  // }, [resizeView])
 
 
-  // const testdiv = document.getElementById('testdiv')
-
-  // console.log(testnav.current.offsetWidth)
 
   return (
-    <div style={{height: '100%', width: width}} ref={testnav} id='testdiv'>
+    <div style={{height: '100%'}} id='testdiv'>
       <NavigationBar>
         <NavigationList onClick={() => navigate('/')}>{width > 101 ? "메뉴 1 (Home)" : 'icon 1 (Home)'}</NavigationList>
         <NavigationList onClick={() => navigate('/statistics')}>{width > 101 ? "메뉴 2 (Statistics)" : 'icon 2 (Statistics)'}</NavigationList>
@@ -64,7 +70,7 @@ const [testwidth, setTestwidth] = useState();
         {/* <NavigationList /> */}
 
         <br />
-        {/* <div>{width}</div> */}
+        <div>{width}</div>
       </NavigationBar>
     </div>
   )

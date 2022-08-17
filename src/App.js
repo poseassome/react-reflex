@@ -16,7 +16,7 @@ import Statistics from './components/Statistics/Statistics';
 import MiddleComponent from './components/MiddleComponent/MiddleComponent';
 import WebSocket from './components/WebSocket/WebSocket';
 import CalendarCustom from './components/Calendar/CalendarCustom';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
 
@@ -29,6 +29,8 @@ const minWidthLeftPane = window.screen.width / 8;
 
 function App() {
 
+  const [testwidth, setTestwidth] = useState(300);
+  const [tempwidth, setTempwidth] = useState(testwidth);
 
 
   return (
@@ -46,15 +48,14 @@ function App() {
         <ReflexElement>
 
           {/* 내용 내부 resizable */}
-          <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}} windowResizeAware={false}>
+          <ReflexContainer orientation="vertical" style={{height: 'calc(100vh - 40px)'}} windowResizeAware={true}>
             {/* 왼쪽 nav */}
-            <ReflexElement className='left-pane' minSize='100' maxSize='300' style={{height: 'calc(100vh - 40px)', overflow: 'hidden', maxWidth: '300px'}}  propagateDimensions={true} propagateDimensionsRate={200} >
-              <Nav />
+            <ReflexElement className='left-pane' style={{height: 'calc(100vh - 40px)', overflow: 'hidden'}}
+              minSize='100' maxSize={testwidth} propagateDimensions={true} >
+              <Nav setTestwidth={setTestwidth} setTempwidth={setTempwidth} />
             </ReflexElement>
 
-            <ReflexSplitter className="reflex-thin" />
-
-
+            <ReflexSplitter className="reflex-thin" onStartResize={() => setTestwidth(300)} onStopResize={() => setTestwidth(tempwidth)} />
 
               {/* 중간 content */}
               {/* <ReflexElement  className='middle-pane' style={{height: 'calc(100vh - 40px)'}}>
